@@ -20,7 +20,7 @@ const Home = () => {
     <>
       <div className="App">
         <header className="App-header">
-          <h1>Todo List</h1>
+          <h1 className="title text-center">Todo List</h1>
           <TodoForm addTodo={addTodo} />
           <TodoList todos={todos} taskDelete={taskDelete} />
         </header>

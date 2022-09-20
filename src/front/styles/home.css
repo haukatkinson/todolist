@@ -1,0 +1,28 @@
+.App {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 500px;
+  height: 500px;
+  background-color: gray;
+  box-shadow: 4px 8px 8px hsl(0deg 0% 0% / 0.38);
+}
+.title {
+  font-family: "Seaweed Script", cursive;
+  padding-top: 10px;
+  text-shadow: 2px 2px white;
+}
+.todoTask {
+  font-size: x-large;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 100;
+}
+.todoInput {
+  width: 300px;
+  border-style: groove;
+}
+.trash {
+  margin-left: 5px;
+}

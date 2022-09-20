@@ -1,15 +1,16 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 
 export default function Todo({ todo, taskDelete }) {
   function handleDelete() {
     taskDelete(todo.id);
   }
   return (
-    <div style={{ display: "flex" }}>
-      <li>{todo.task}</li>
-      <button className="delete" onClick={handleDelete}>
-        <i class="far fa-trash"></i>
-      </button>
+    <div className="listTodos text-center" style={{ display: "flex" }}>
+      <li className="todoTask">
+        <span>{todo.task}</span>
+        <FaTrash className="trash" onClick={handleDelete} />
+      </li>
     </div>
   );
 }
