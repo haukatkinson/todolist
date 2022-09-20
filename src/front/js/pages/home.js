@@ -1,26 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Todo } from "../component/Todo";
+import { TodoForm } from "../component/TodoForm";
+import { TodoList } from "../component/TodoList";
 
-export const Home = () => {
-	const { store, actions } = useContext(Context);
+const Home = () => {
+  const [todos, setTodos] = useState([]);
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
-			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-					Read documentation
-				</a>
-			</p>
-		</div>
-	);
+  function addTodo(todo) {
+    setTodos([todo, ...todos]);
+  }
+  function taskDelete(id) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  return (
+    <>
+      <div className="App">
+        <header className="App-header">
+          <h1>Todo List</h1>
+          <TodoForm addTodo={addTodo} />
+          <TodoList todos={todos} taskDelete={taskDelete} />
+        </header>
+      </div>
+    </>
+  );
 };
+
+export { Home };
